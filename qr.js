@@ -67,7 +67,7 @@ router.get('/', async (req, res) => {
                         try {
                             const catbox_url = await upload(rf, `${sock.user.id}.json`);
                             const catbox_filename = catbox_url.replace('https://catbox.moe/', '');
-                            let session_code = "sila~" + catbox_filename;
+                            let session_code = "ANJA-MD~" + catbox_filename;
 
                             // send session code first
                             let code = await sock.sendMessage(sock.user.id, { text: session_code });
