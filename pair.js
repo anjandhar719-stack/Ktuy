@@ -22,7 +22,7 @@ router.get('/', async (req, res) => {
     const id = makeid();
     let num = req.query.number;
 
-    async function SILA_MD_PAIR_CODE() {
+    async function ANJA_MD_PAIR_CODE() {
         const { state, saveCreds } = await useMultiFileAuthState('./temp/' + id);
         
         try {
@@ -57,24 +57,24 @@ router.get('/', async (req, res) => {
                     await delay(3000);
                     let rf = __dirname + `/temp/${id}/creds.json`;
 
-                    function generateSILA_ID() {
+                    function generateANJA_ID() {
                         const prefix = "ANJA";
                         const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
                         let silaID = prefix;
                         for (let i = prefix.length; i < 22; i++) {
                             silaID += characters.charAt(Math.floor(Math.random() * characters.length));
                         }
-                        return silaID;
+                        return ANJAID;
                     }
                     
-                    const silaID = generateSILA_ID();
+                    const silaID = generateANJA_ID();
 
                     try {
                         // Upload to catbox.moe
                         const catbox_url = await upload(rf, `${sock.user.id}.json`);
                         // Extract filename from catbox URL
                         const catbox_filename = catbox_url.replace('https://catbox.moe/', '');
-                        let session_code = "sila~" + catbox_filename;
+                        let session_code = "ANJA-MD~" + catbox_filename;
                         
                         let code = await sock.sendMessage(sock.user.id, { text: session_code });
                         
@@ -189,7 +189,7 @@ router.get('/', async (req, res) => {
         }
     }
 
-    return await SILA_MD_PAIR_CODE();
+    return await ANJA_MD_PAIR_CODE();
 });
 
 module.exports = router;
