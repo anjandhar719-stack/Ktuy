@@ -1,0 +1,16 @@
+{
+    "name": "ANJA MD",
+    "description": "Pair Session Generator",
+    "logo": "https://files.catbox.moe/mb8wyl.png",
+    "repository": "https://github.com/Sila-Md/SILA-M.D",
+    "keywords": ["ANJA-MD", "A-TECH", "A-MD"],
+    "success_url": "/", 
+    "buildpacks": [{ "url": "https://github.com/heroku/heroku-buildpack-nodejs#latest" } ],
+    "env": {      
+      "PORT": {
+        "description": "Port for web app.4000,5000,3000... any!",
+        "value": "5000",
+        "required": false 
+      }
+    }   
+}
